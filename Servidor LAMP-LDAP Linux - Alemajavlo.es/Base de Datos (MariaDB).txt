@@ -1,0 +1,47 @@
+NECESARIO:
+-----------------------------------------------------------------
+Instalar phpmyadmin:
+https://chachocool.com/como-instalar-phpmyadmin-en-debian-9/
+-----------------------------------------------------------------
+
+COMANDOS SQL:
+-----------------------------------------------------------------
+use phpmyadmin;
+
+CREATE TABLE `ACCESOS`(
+	`username` varchar(64) NOT NULL,
+	`intentos` int(2) NOT NULL
+);
+
+CREATE TABLE `CONFIRMAR_EMAIL`(
+	`username` varchar(64) NOT NULL,
+	`email` varchar(128) NOT NULL,
+	`codigo` varchar(40) NOT NULL
+);
+
+CREATE TABLE `CUENTA`(
+	`username` varchar(128) NOT NULL,
+	`email` varchar(128) NOT NULL,
+	`email_confirmado` int(2) NOT NULL
+);
+
+CREATE TABLE `SESIONES`(
+	`username` varchar(32) NOT NULL,
+	`fecha` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	`sesion_activa` int(2) NOT NULL
+); 
+
+CREATE TABLE `USUARIOS`(
+	`id` int(11) NOT NULL auto_increment,
+	`username` varchar(128) NOT NULL,
+	`nombre` varchar(64) NOT NULL,
+	`apellidos` varchar(128) NOT NULL,
+	`email` varchar(128) NOT NULL,
+	`direccion` varchar(2048) NOT NULL,
+	`codigo_postal` int(11) NOT NULL,
+	`pais` varchar(64) NOT NULL,
+	`telefono` int(11) NOT NULL,
+	`rol` varchar(64),
+	PRIMARY KEY (`id`)
+);
+-----------------------------------------------------------------
